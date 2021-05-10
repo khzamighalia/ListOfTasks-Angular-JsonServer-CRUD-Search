@@ -9,7 +9,7 @@
 </div>
 <div  class="row">
     <div  class="col-md-6 mx-auto">
-<input (keyup)="searchTasks()" [(ngModel)]="searchText" placeholder="search ..." type="text" class="form-control">
+<input *ngIf="!showForm" (keyup)="searchTasks()" [(ngModel)]="searchText" placeholder="search ..." type="text" class="form-control">
     </div>
 </div>
 <div  class="row">

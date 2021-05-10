@@ -27,13 +27,17 @@ export class TasksComponent implements OnInit {
     this.taskService.findAll().subscribe(tasks => this.resulttasks = this.tasks = tasks)
   }
   deleteTask(id){
-    return this.taskService.delete(id).subscribe(() => { this.tasks =this.tasks.filter(task => task.id!=id) })
+    return this.taskService.delete(id).subscribe(() => { this.tasks =this.tasks.filter(task => task.id!=id);this.getTasks(); });
+    
+    
+
 
   }
   persistTask(){
     this.taskService.persist(this.mytask).subscribe((task) => {this.tasks=[task,...this.tasks];
       this.resetTask();
       this.showForm =!this.showForm;
+      this.getTasks();
     })
 
   }
